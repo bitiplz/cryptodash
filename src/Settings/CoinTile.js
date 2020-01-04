@@ -10,15 +10,15 @@ function onCoinClick( topSection, coinKey, addCoin, removeCoin ){
 
 export default function({coinKey, topSection}){
     return <AppContext.Consumer>
-    {({coinList, favorites, addCoin, removeCoin, isInFavorites}) => {
-        let coin = coinList[coinKey];
+        {({coinList, favorites, addCoin, removeCoin, isInFavorites}) => {
+            let coin = coinList[coinKey];
 
-        const TileClass = topSection ? DeletableTile : ( isInFavorites( coinKey ) ? DisabledTile : SelectableTile );
+            const TileClass = topSection ? DeletableTile : ( isInFavorites( coinKey ) ? DisabledTile : SelectableTile );
 
-        return <TileClass onClick={ onCoinClick( topSection, coinKey, addCoin, removeCoin ) }>
-            <CoinHeaderGrid topSection={topSection} name={coin.CoinName} symbol={coin.Symbol} />
-            <CoinImage coin={coin} />
-        </TileClass>;
-    }}
+            return <TileClass onClick={ onCoinClick( topSection, coinKey, addCoin, removeCoin ) }>
+                <CoinHeaderGrid topSection={topSection} name={coin.CoinName} symbol={coin.Symbol} />
+                <CoinImage coin={coin} />
+            </TileClass>;
+        }}
     </AppContext.Consumer>;
 }

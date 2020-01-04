@@ -4,9 +4,12 @@ import {AppContext} from "../App/AppProvider";
 export default function( props ){
     return (
         <AppContext.Consumer>
-            {({coinList}) => {
+            {({coinList, prices, firstVisit}) => {
                 if ( !coinList ) {
-                    return <div> loading coins... </div>;
+                    return <div> Loading coins... </div>;
+                }
+                if ( !firstVisit && !prices ) {
+                    return <div> Loading prices... </div>;
                 }
             return <div> {props.children} </div>
             }}
