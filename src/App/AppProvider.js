@@ -20,6 +20,7 @@ export class AppProvider extends React.Component {
             removeCoin: this.removeCoin,
             isInFavorites: this.isInFavorites,
             confirmFavorites: this.confirmFavorites,
+            setFilteredCoins : this.setFilteredCoins,
         }
     }
 
@@ -30,6 +31,16 @@ export class AppProvider extends React.Component {
     fetchCoins = async () => {
         let coinList = (await cc.coinList()).Data;
         this.setState({coinList})
+    }
+
+    confirmFavorites = ()=>{
+        this.setState({
+            firstVisit : false,
+            page:'dashboard'
+        })
+        localStorage.setItem('cryptoDash', JSON.stringify({
+            favorites: this.state.favorites,
+        }))
     }
 
     addCoin = key => {
@@ -59,15 +70,7 @@ export class AppProvider extends React.Component {
 
     setPage = page => this.setState({page})
 
-    confirmFavorites = ()=>{
-        this.setState({
-            firstVisit : false,
-            page:'dashboard'
-        })
-        localStorage.setItem('cryptoDash', JSON.stringify({
-            favorites: this.state.favorites,
-        }))
-    }
+    setFilteredCoins = ( filteredCoins ) => this.setState({filteredCoins});
 
     render(){
         return (
