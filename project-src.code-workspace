@@ -8,6 +8,9 @@
         },
         {
             "path": "src\\Shared"
+        },
+        {
+            "path": "src\\Dashboard"
         }
     ]
 }

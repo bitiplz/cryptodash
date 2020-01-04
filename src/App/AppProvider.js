@@ -13,7 +13,7 @@ export class AppProvider extends React.Component {
         super(props);
         this.state = {
             page: 'dashboard',
-            favorites: ['BTC', 'ETH', 'XRP', 'DOGE'],
+            favorites: [],
             ...this.savedSettings(),
             setPage: this.setPage,
             addCoin: this.addCoin,
@@ -64,6 +64,7 @@ export class AppProvider extends React.Component {
         localStorage.setItem('cryptoDash', JSON.stringify({
             favorites: this.state.favorites,
         }))
+        this.fetchPrices();
     }
 
     addCoin = key => {
