@@ -1,7 +1,10 @@
 {
 	"folders": [
 		{
-			"path": "./src/App"
+			"path": "src\\App"
+		},
+		{
+			"path": "src\\Settings"
 		}
 	],
 	"settings": {}
