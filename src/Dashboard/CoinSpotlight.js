@@ -20,10 +20,3 @@ export default function(){
         </AppContext.Consumer>
     );
 }
-
-
-/*
-
-                    <SpotlightName>{ coinList[currentFavorite].CoinName }</SpotlightName>
-                    <CoinImage spotlight coin={ coinList[currentFavorite] } />
-*/
